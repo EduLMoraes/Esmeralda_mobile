@@ -30,7 +30,7 @@ export default function App() {
       <TextInput 
         placeholder="Nome do usuário" 
         style={styles.input} 
-        autoCapitalize="words" //characteres, words, none
+        autoCapitalize="words"
         onChangeText={nome => setNome(nome)}
       />
       <TextInput placeholder="E-mail" 

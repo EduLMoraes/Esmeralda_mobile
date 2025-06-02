@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, Pressable } from 'react-native';
 import * as Speech from 'expo-speech';
 
-export default function App() {
+export default function Speech() {
   const [total, setTotal] = useState(0);
 
   const pedir = (valor, produto) => {    
@@ -79,16 +79,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#ffe18b',
-    alignItems: 'center',     // alinhamento horizontal
-    justifyContent: 'center', // alinhamento vertical
+    alignItems: 'center',    
+    justifyContent: 'center',
     padding: 20,
     columnGap: 20
   },
   lanches: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',     // alinhamento horizontal
-    justifyContent: 'center', // alinhamento vertical
+    alignItems: 'center',    
+    justifyContent: 'center',
     padding: 20,
     columnGap: 30
   },
@@ -98,15 +98,15 @@ const styles = StyleSheet.create({
     rowGap: 10,    
   },
   botao: {
-    alignItems: 'center',     // alinhamento horizontal
-    justifyContent: 'center', // alinhamento vertical
+    alignItems: 'center',    
+    justifyContent: 'center',
   },
   imagem: {
     width: 170,
     height: 170
   },
   viewPastel: {
-    //flex: 2,
+  
     width: '100%',
     height: 150,
     borderRadius: 20,

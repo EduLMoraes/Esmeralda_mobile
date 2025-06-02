@@ -54,16 +54,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',   // alinhamento vertical
-    alignItems: 'center',       // alinhamento horizontal
-    //rowGap: 30,
+    justifyContent: 'center',  
+    alignItems: 'center',      
+  
     columnGap: 30,              
   
     backgroundColor: 'gray',       
     padding: 30
   },
   container1: {
-    //flex: 3,
+  
     backgroundColor: '#c79191',
     alignItems: 'center',
     justifyContent: 'center',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     height: 200
   },
   container2: {
-    //flex: 2,
+  
     backgroundColor: '#91b9c7',
     alignItems: 'center',
     justifyContent: 'center',
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     height: 200
   },
   container3: {
-    //flex: 1,
-    //backgroundColor: '#91c7a0',
+  
+  
     alignItems: 'center',
     justifyContent: 'center',
     width: 100,

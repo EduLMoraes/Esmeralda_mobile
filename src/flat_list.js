@@ -1,90 +1,109 @@
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity, Linking, Alert } from 'react-native';
+import * as Speech from 'expo-speech';
 
-export default function App() {
+export default function GetFlatList() {
 
-  const Filmes = [
+  const ListaDeCompras = [
     {
       id: 1,
-      nome: 'Transcendence: A Revolução',
-      ano: 2014,
-      genero: 'Ficção',
-      imagem: require('./assets/1.jpg'),
-      sinopse: "Dr. Will Caster, a maior autoridade do mundo em inteligência artificial, está conduzindo experimentos altamente controversos, na intenção de criar um robô com grande variedade de emoções humanas. Quando extremistas antitecnologia tentam matá-lo, Caster convence sua esposa, Evelyn, e seu melhor amigo, Max Waters, a testar seu novo invento nele mesmo. Só que a grande questão não é se eles podem fazer isto, mas se eles devem dar este passo.",
-      url: "https://www.youtube.com/watch?v=EgG6LNxKT0U"
+      nome: 'Maçã Gala Nacional (Kg)',
+      preco: 7.98,
+      mercado: 'Supermercado Preço Bom',
+      genero: 'Hortifruti',
     },
     {
       id: 2,
-      nome: 'Kung Fu Panda 4',
-      ano: 2024,
-      genero: 'Ação',
-      imagem: require('./assets/2.jpg'),
-      sinopse: "Uma poderosa feiticeira que muda de forma coloca os olhos no Cajado da Sabedoria. Po de repente percebe que precisa de ajuda e logo descobre que heróis podem ser encontrados nos lugares mais inesperados.",
-      url: "https://www.youtube.com/watch?v=hI1jyNTMBFI"
+      nome: 'Leite Integral Longa Vida UHT 1L',
+      preco: 4.29,
+      mercado: 'Mercadão Popular',
+      genero: 'Laticínios',
     },
     {
       id: 3,
-      nome: 'Matrix',
-      ano: 1999,
-      genero: 'Ação',
-      imagem: require('./assets/3.jpg'),
-      sinopse: "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a desconfiar da realidade. Thomas conhece os misteriosos Morpheus e Trinity e descobre que é vítima de um sistema inteligente e artificial chamado Matrix, que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.",
-      url: "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+      nome: 'Pão de Forma Tradicional 500g',
+      preco: 6.50,
+      mercado: 'Padaria Sonho Doce',
+      genero: 'Padaria',
     },
     {
       id: 4,
-      nome: 'The Batman',
-      ano: 2022,
-      genero: 'Ação',
-      imagem: require('./assets/4.jpg'),
-      sinopse: "Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
-      url: "https://www.youtube.com/watch?v=mqqft2x_Aa4"
+      nome: 'Refrigerante Cola 2L',
+      preco: 8.99,
+      mercado: 'Supermercado Preço Bom',
+      genero: 'Bebida',
     },
     {
       id: 5,
-      nome: 'A Substância',
-      ano: 2024,
-      genero: 'Terror',
-      imagem: require('./assets/5.jpg'),
-      sinopse: "Elisabeth Sparkle, renomada por um programa de aeróbica, enfrenta um golpe devastador quando seu chefe a demite. Em meio ao seu desespero, um laboratório lhe oferece uma substância que promete transformá-la em uma versão aprimorada.",
-      url: 'https://www.youtube.com/watch?v=LNlrGhBpYjc'
+      nome: 'Sabão em Pó Multiação 1Kg',
+      preco: 15.75,
+      mercado: 'Atacado Econômico',
+      genero: 'Limpeza',
     },
     {
       id: 6,
-      nome: 'Minecraft',
-      ano: 2025,
-      genero: 'Aventura',
-      imagem: require('./assets/6.jpg'),
-      sinopse: "Um portal misterioso atrai quatro desajustados para o Overworld, uma terra das maravilhas bizarras e cúbicas que prospera com a imaginação. Para voltar para casa, eles têm que dominar o terreno enquanto embarcam em uma missão mágica com um construtor inesperado chamado Steve.",
-      url: "https://www.youtube.com/watch?v=EVKYAAES6JQ"
+      nome: 'Arroz Agulhinha Tipo 1 (5Kg)',
+      preco: 28.50,
+      mercado: 'Mercadão Popular',
+      genero: 'Mercearia',
+    },
+    {
+      id: 7,
+      nome: 'Shampoo Hidratação Profunda 350ml',
+      preco: 12.90,
+      mercado: 'Farmácia Bem Estar',
+      genero: 'Higiene Pessoal',
+    },
+    {
+      id: 8,
+      nome: 'Queijo Mussarela Fatiado (200g)',
+      preco: 10.20,
+      mercado: 'Supermercado Preço Bom',
+      genero: 'Frios e Laticínios',
+    },
+    {
+      id: 9,
+      nome: 'Café Torrado e Moído Tradicional 500g',
+      preco: 18.99,
+      mercado: 'Mercadão Popular',
+      genero: 'Mercearia',
+    },
+    {
+      id: 10,
+      nome: 'Água Sanitária Perfumada 2L',
+      preco: 5.80,
+      mercado: 'Atacado Econômico',
+      genero: 'Limpeza',
+    },
+    {
+      id: 11,
+      nome: 'Banana Prata (Dúzia)',
+      preco: 9.50,
+      mercado: 'Feira do Produtor',
+      genero: 'Hortifruti',
+    },
+    {
+      id: 12,
+      nome: 'Detergente Líquido Neutro 500ml',
+      preco: 3.25,
+      mercado: 'Supermercado Preço Bom',
+      genero: 'Limpeza',
     }
   ];
+  
 
   const criaItem = ({item}) =>
     <TouchableOpacity 
       style={styles.listaItem} 
       onPress={() => 
-        Alert.alert(
-          'Sinopse',
-          item.sinopse, 
-          [
-            {
-              text: 'Assistir trailer',
-              onPress: () => Linking.openURL(item.url),
-            },
-            {
-              text: 'Fechar',
-              onPress: () => null,
-            }
-          ]
-        )}
+        Speech.speak(item.nome + "." + item.preco + "reais" + ". No estabelecimento " + item.mercado)
+      }
     >
-      <Image source={item.imagem} style={styles.listaImagem} />
 
       <View style={styles.listaDetalhes}>
-        <Text>Cód: {item.id}</Text>
         <Text>Nome: {item.nome}</Text>
-        <Text>Ano: {item.ano}</Text>
+        <Text>R$: {item.preco}</Text>
+        <Text>Mercado: {item.mercado}</Text>
         <Text>Gênero: {item.genero}</Text>
       </View>
     </TouchableOpacity>
@@ -92,10 +111,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Flatlist</Text>
-
       <FlatList 
-        data={Filmes}
+        data={ListaDeCompras}
         renderItem={criaItem}
         keyExtractor={item => item.id}
       />
